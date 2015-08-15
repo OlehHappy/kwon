@@ -15,8 +15,9 @@ app.get('/tosql/:body?', function (req, res) {
 });
 
 app.get('/fromsql', function (req, res) {
-    console.log(sqldata.fromsql());
-    res.send(sqldata.fromsql());
+    sqldata.fromsql(function (result){
+        res.send(result);
+    });
 });
 
 

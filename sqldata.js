@@ -32,9 +32,11 @@ function bodytosql(txt) {
     });
 };
 
-function fromsql() {
+function fromsql(callback, callback2) {
     connection.query('select * from articles', function (err, result) {
-        console.log(result);
+        // console.log(result);
+        callback(result);
+        callback2(100000000);
     });
 };
 
