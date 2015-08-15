@@ -3,25 +3,34 @@
  */
 var express = require('express');
 var app = express();
-var exphbs  = require('express3-handlebars');
-app.engine('handlebars',
-    exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
-
-app.get('/', function (req, res) {
-    var luckyNumber = Math.round(Math.random() * 10);
-
-    res.render('index', {
-        name: 'World',
-        luckyNumber: luckyNumber
-    });
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'goodSQL888',
+    database : 'kwon_sql'
 });
 
-app.get('/about', function (req, res) {
-    res.render('about');
+connection.connect(function(err){
+    if(!err) {
+        console.log("Database is connected ... \n\n");
+    } else {
+        console.log("Error connecting database ... \n\n");
+    }
 });
 
-app.use('/public', express.static('public'));
+var article = {
+    author: 'Oleh',
+    body: '2 second acticle in kwon database'
+};
+
+var query = connection.query('insert into articles set ?', article, function (err, result){
+   if (err){
+       console.error(err);
+       return;
+   }
+    console.log(query.sql);
+});
 
 var server = app.listen(5000, function () {
     var host = server.address().address;

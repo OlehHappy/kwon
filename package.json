@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "*",
+    "mysql": "felixge/node-mysql"
   },
   "devDependencies": {},
   "scripts": {
