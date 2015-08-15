@@ -3,34 +3,22 @@
  */
 var express = require('express');
 var app = express();
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'goodSQL888',
-    database : 'kwon_sql'
+var sqldata = require('./sqldata.js');
+
+app.get('/', function (req, res) {
+    res.send('Kwon aplication');
 });
 
-connection.connect(function(err){
-    if(!err) {
-        console.log("Database is connected ... \n\n");
-    } else {
-        console.log("Error connecting database ... \n\n");
-    }
+app.get('/tosql/:body?', function (req, res) {
+    var txt = req.params.body;
+    sqldata.bodytosql(txt);
 });
 
-var article = {
-    author: 'Oleh',
-    body: '2 second acticle in kwon database'
-};
-
-var query = connection.query('insert into articles set ?', article, function (err, result){
-   if (err){
-       console.error(err);
-       return;
-   }
-    console.log(query.sql);
+app.get('/fromsql', function (req, res) {
+    console.log(sqldata.fromsql());
+    res.send(sqldata.fromsql());
 });
+
 
 var server = app.listen(5000, function () {
     var host = server.address().address;
