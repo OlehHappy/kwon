@@ -22,13 +22,25 @@
       {{#link-to "index" class="btn btn-primary"}}Home{{/link-to}}
       {{#link-to "notes" class="btn btn-primary"}}Visitor Notes{{/link-to}}
     </nav>
-    <main class="mainClass cf">{{outlet}}</main>
+    <main class="mainClass cf">
+      {{outlet}}
+    </main>
     <footer class="footerClass centerText cf">
       <small>&copy; KWON Appliaction</small>
     </footer>
   </div>
 </script>
 
+
+<script type="text/x-handlebars" id="index">
+  <article class="pageClass">
+    <h2>Add your Note</h2>
+    {{textarea placeholder="create a new note" value=newNote rows=10 cols=50}}
+    <p class="btnVolunteerParagraph">
+      <button {{action "newNote"}} class="btn btn-info">Save this note</button>
+    </p>
+  </article>
+</script>
 
 <script type="text/x-handlebars" id="notes">
   <article class="pageClass">
@@ -39,8 +51,6 @@
     {{/each}}
   </article>
 </script>
-
-
 
 <script src="js/libs/jquery-1.10.2.js"></script>
 <script src="js/libs/handlebars-1.1.2.js"></script>
