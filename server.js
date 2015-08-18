@@ -5,14 +5,6 @@ var express = require('express');
 var app = express();
 var sqldata = require('./sqldata.js');
 
-// set the static files location
-/*
-app.use(express.static(__dirname + '/public'));
-
-app.get('*', function(req, res) {
-    res.sendfile('./public/index.html'); // load our public/index.html file
-});
-*/
 
 app.get('/tosql/:body?', function (req, res) {
     sqldata.bodytosql(req.params.body);
@@ -22,6 +14,14 @@ app.get('/fromsql', function (req, res) {
     sqldata.fromsql(function (result){
         res.send(result);
     });
+});
+
+// set the static files location
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('*', function(req, res) {
+    res.sendfile('./public/index.html'); // load our public/index.html file
 });
 
 
