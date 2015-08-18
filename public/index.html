@@ -2,22 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Test Application with Ember JS</title>
+  <title>Kwon Application with Ember JS</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<script type="text/x-handlebars">
+  <div class="container">
+    <header class="headerClass">
+      <h1 class="logo">
+        {{#link-to "index" class="homepageLinkClass"}}
+        KWON APP
+        {{/link-to}}
+      </h1>
+    </header>
+    <nav class="navClass centerText">
+      {{#link-to "notes" class="btn btn-primary"}}Visitor Notes{{/link-to}}
+    </nav>
+    <main class="mainClass cf">{{outlet}}</main>
+    <footer class="footerClass centerText cf">
+      <small>&copy; KWON Appliaction</small>
+    </footer>
+  </div>
+</script>
 
-<!--
-  ============================================================
-  "COLLECTIONS" PAGE/TEMPLATE: displays the Collection content
-  ============================================================
--->
 
-
-<script type="text/x-handlebars" id="page1">
+<script type="text/x-handlebars" id="notes">
 
   <p>Data from Server SQL:</p>
   {{#each}}

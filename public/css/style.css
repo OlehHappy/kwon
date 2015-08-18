@@ -3,13 +3,11 @@ html {
   height: 100%;
 }
 
-/*
 body {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   height: 100%;
   background: url("../images/grunge-wall.jpg") #023960;
 }
-*/
 
 /* Override large Bootstrap margin-bottom */
 h1, .h1, h2, .h2, h3, .h3 {
