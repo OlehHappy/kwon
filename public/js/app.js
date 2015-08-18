@@ -2,16 +2,11 @@ App = Ember.Application.create();
 
 App.Router.map(function() {
   this.route("about");
-  this.route("page1");
+  this.route("notes");
 
 });
 
-/*
- * COLLECTIONS CODE STARTS HERE
- */
-
-// Collections Route
-App.Page1Route = Ember.Route.extend({
+App.NotesRoute = Ember.Route.extend({
   model: function() {
     return $.getJSON("/fromsql").then(function(data) {
 

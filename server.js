@@ -11,19 +11,12 @@ app.get('/tosql/:body?', function (req, res) {
 });
 
 app.get('/fromsql', function (req, res) {
-    var testData = [{
-        title:"test_data",
-        lenght:9999
-    }]
-
-    res.json(testData)
-    // sqldata.fromsql(function (result){
-    //     res.send(result);
-    // });
+    sqldata.fromsql(function (result){
+        res.json(result);
+     });
 });
 
 // set the static files location
-
 app.use(express.static(__dirname + '/public'));
 
 app.get('*', function(req, res) {

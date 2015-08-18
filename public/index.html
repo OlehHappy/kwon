@@ -19,14 +19,10 @@
 
 <script type="text/x-handlebars" id="page1">
 
-  <p>Данные пришли из сервера</p>
-  <!-- Лупаем объект. Внутри названия его свойств полностю равны тем что мы передали с сервера-->
+  <p>Data from Server SQL:</p>
   {{#each}}
-
-  Параметр объекта: <b>{{title}}</b>
-  <br/>
-  Параметр 2: <b>{{lenght}}</b>
-
+  User: <b>{{author}}</b><br/>
+  Note: <b>{{body}}</b><br/>
   {{/each}}
 
 </script>
