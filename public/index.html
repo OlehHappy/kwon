@@ -21,6 +21,7 @@
     <nav class="navClass centerText">
       {{#link-to "index" class="btn btn-primary"}}Home{{/link-to}}
       {{#link-to "notes" class="btn btn-primary"}}Visitor Notes{{/link-to}}
+      {{#link-to "notes2" class="btn btn-primary"}}Other Method{{/link-to}}
     </nav>
     <main class="mainClass cf">
       {{outlet}}
@@ -48,6 +49,15 @@
      {{#each}}
        User: <b>{{author}}</b><br/>
        Note: <b>{{body}}</b><br/>
+    {{/each}}
+  </article>
+</script>
+
+<script type="text/x-handlebars" id="notes2">
+  <article class="pageClass">
+    <h2>Visitor Notes</h2>
+    {{#each}}
+    <li>{{body}}</li>
     {{/each}}
   </article>
 </script>

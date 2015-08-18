@@ -34,8 +34,8 @@ function bodytosql(txt) {
 
 function fromsql(callback) {
     connection.query('SELECT * FROM articles;', function (err, result) {
-        // console.log(result);
         callback(result);
+        //console.log(result);
     });
 };
 
