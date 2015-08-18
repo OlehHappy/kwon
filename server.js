@@ -7,6 +7,7 @@ var sqldata = require('./sqldata.js');
 
 
 app.get('/tosql/:body?', function (req, res) {
+    var txt = req.params.body;
     sqldata.bodytosql(req.params.body);
 });
 

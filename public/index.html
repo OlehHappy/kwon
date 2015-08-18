@@ -19,6 +19,7 @@
       </h1>
     </header>
     <nav class="navClass centerText">
+      {{#link-to "index" class="btn btn-primary"}}Home{{/link-to}}
       {{#link-to "notes" class="btn btn-primary"}}Visitor Notes{{/link-to}}
     </nav>
     <main class="mainClass cf">{{outlet}}</main>
@@ -30,13 +31,13 @@
 
 
 <script type="text/x-handlebars" id="notes">
-
-  <p>Data from Server SQL:</p>
-  {{#each}}
-  User: <b>{{author}}</b><br/>
-  Note: <b>{{body}}</b><br/>
-  {{/each}}
-
+  <article class="pageClass">
+    <h2>Visitor Notes</h2>
+     {{#each}}
+       User: <b>{{author}}</b><br/>
+       Note: <b>{{body}}</b><br/>
+    {{/each}}
+  </article>
 </script>
 
 
